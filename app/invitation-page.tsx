@@ -28,16 +28,16 @@ const EVENTS = [
     label: "First Celebration",
     date: "Friday, April 3rd",
     time: "Evening",
-    venue: "Rockaway Beach (Address TBA)",
-    note: "Friday, April 3rd at Rockaway Beach. Full address to be shared soon.",
+    venue: "Rockaway Beach",
+    note: "Friday, April 3rd at Rockaway Beach.",
   },
   {
     title: "Gaye Holud",
     label: "Day Gathering",
     date: "Saturday, April 4th",
     time: "3:00 PM",
-    venue: "Rockaway Beach (Address TBA)",
-    note: "Saturday, April 4th at 3:00 PM at Rockaway Beach. Full address to be shared soon.",
+    venue: "Rockaway Beach",
+    note: "Saturday, April 4th at 3:00 PM at Rockaway Beach",
   },
   {
     title: "The Wedding",
@@ -490,7 +490,7 @@ function InvitationHeroCard({
           </motion.div>
 
           <motion.div
-            className="absolute inset-0 overflow-hidden bg-[linear-gradient(175deg,#fffdfd_0%,rgba(223,211,206,0.18)_18%,rgba(255,255,255,0.96)_52%,rgba(168,193,212,0.16)_82%,#fffdfd_100%)] p-8 text-[#39445a] sm:p-10"
+            className="absolute inset-0 overflow-hidden bg-[linear-gradient(175deg,#fffefe_0%,rgba(223,211,206,0.34)_18%,rgba(255,255,255,0.99)_56%,rgba(168,193,212,0.24)_82%,#fffefe_100%)] p-8 text-[#39445a] sm:bg-[linear-gradient(175deg,#fffdfd_0%,rgba(223,211,206,0.18)_18%,rgba(255,255,255,0.96)_52%,rgba(168,193,212,0.16)_82%,#fffdfd_100%)] sm:p-10"
             style={{
               ...cardFaceStyle,
               transform: "rotateY(-180deg)",
@@ -509,6 +509,7 @@ function InvitationHeroCard({
             }}
           >
             <DecorativeCardFrame dark />
+            <div className="pointer-events-none absolute inset-[14px] rounded-[18px] bg-white/32 sm:hidden" />
             <div className="pointer-events-none absolute inset-x-8 bottom-8 h-28 rounded-[32px] bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.72)_0%,rgba(255,255,255,0)_72%)] opacity-80 sm:inset-x-10 sm:bottom-10" />
 
             <motion.div
@@ -886,9 +887,7 @@ export default function InvitationPage() {
                     <p className="mt-2 font-heading text-[2rem] text-[#4d5874]">
                       Mehendi Night
                     </p>
-                    <p className="text-base text-[#77839c]">
-                      Rockaway Beach (Address TBA)
-                    </p>
+                    <p className="text-base text-[#77839c]">Rockaway Beach</p>
                   </div>
                   <div className="h-px w-full bg-[#DFD3CE]/60" />
                   <div>
@@ -898,9 +897,7 @@ export default function InvitationPage() {
                     <p className="mt-2 font-heading text-[2rem] text-[#4d5874]">
                       Gaye Holud
                     </p>
-                    <p className="text-base text-[#77839c]">
-                      Rockaway Beach (Address TBA)
-                    </p>
+                    <p className="text-base text-[#77839c]">Rockaway Beach</p>
                   </div>
                   <div className="h-px w-full bg-[#A8C1D4]/50" />
                   <div>
@@ -980,8 +977,7 @@ export default function InvitationPage() {
                     Rockaway Beach
                   </p>
                   <p className="mt-3 text-sm leading-7 text-[#77839c]">
-                    Mehendi Night and Gaye Holud take place here. The exact
-                    beach address will be shared soon.
+                    Mehendi Night and Gaye Holud take place here.
                   </p>
                 </motion.div>
 
