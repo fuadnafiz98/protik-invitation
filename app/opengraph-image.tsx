@@ -1,3 +1,4 @@
+import { readFile } from "node:fs/promises"
 import { ImageResponse } from "next/og"
 
 export const runtime = "nodejs"
@@ -9,17 +10,11 @@ export const size = {
 }
 export const contentType = "image/png"
 
-const imageUrl = new URL("./images/og.jpg", import.meta.url)
+const imagePath = new URL("./images/og.jpg", import.meta.url)
 
 async function getImageDataUrl() {
-  const response = await fetch(imageUrl)
-
-  if (!response.ok) {
-    throw new Error("Failed to load OG source image.")
-  }
-
-  const arrayBuffer = await response.arrayBuffer()
-  const base64 = Buffer.from(arrayBuffer).toString("base64")
+  const imageBuffer = await readFile(imagePath)
+  const base64 = imageBuffer.toString("base64")
 
   return `data:image/jpeg;base64,${base64}`
 }
