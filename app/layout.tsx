@@ -1,16 +1,18 @@
-import { Geist, Geist_Mono, DM_Sans, Playfair_Display } from "next/font/google"
+import { Cormorant_Garamond, Inter } from "next/font/google"
 
 import "./globals.css"
-import { ThemeProvider } from "@/components/theme-provider"
-import { cn } from "@/lib/utils";
 
-const playfairDisplayHeading = Playfair_Display({subsets:['latin'],variable:'--font-heading'});
-
-const dmSans = DM_Sans({subsets:['latin'],variable:'--font-sans'})
-
-const fontMono = Geist_Mono({
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-mono",
+  variable: "--font-sans",
+  display: "swap",
+})
+
+const cormorant = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["300", "500", "600"],
+  variable: "--font-cormorant",
+  display: "swap",
 })
 
 export default function RootLayout({
@@ -21,12 +23,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      suppressHydrationWarning
-      className={cn("antialiased", fontMono.variable, "font-sans", dmSans.variable, playfairDisplayHeading.variable)}
+      className={`${inter.variable} ${cormorant.variable} font-sans antialiased`}
     >
-      <body>
-        <ThemeProvider>{children}</ThemeProvider>
-      </body>
+      <body>{children}</body>
     </html>
   )
 }

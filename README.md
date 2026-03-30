@@ -1,21 +1,23 @@
-# Next.js template
+# Wedding Invitation Site
 
-This is a Next.js template with shadcn/ui.
+A single-page wedding invitation built with Next.js, React, Tailwind CSS, and `motion`.
 
-## Adding components
-
-To add components to your app, run the following command:
+## Development
 
 ```bash
-npx shadcn@latest add button
+bun install
+bun run dev
 ```
 
-This will place the ui components in the `components` directory.
+## Checks
 
-## Using components
-
-To use the components in your app, import them as follows:
-
-```tsx
-import { Button } from "@/components/ui/button";
+```bash
+bun run lint
+bun run typecheck
 ```
+
+## Structure
+
+- `app/page.tsx`: route metadata and page entry
+- `app/invitation-page.tsx`: main invitation experience
+- `app/images/`: floral assets used in the hero invitation card
