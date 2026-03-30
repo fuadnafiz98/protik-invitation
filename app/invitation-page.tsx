@@ -76,7 +76,7 @@ const FLOATING_BLOOMS: ReadonlyArray<{
     right: "12%",
     delay: 1,
     duration: 16,
-    color: "bg-[#8CA4AC]/48",
+    color: "bg-[#A8C1D4]/48",
   },
   {
     id: "bottom-left",
@@ -94,7 +94,7 @@ const FLOATING_BLOOMS: ReadonlyArray<{
     right: "10%",
     delay: 0.7,
     duration: 14,
-    color: "bg-[#8CA4AC]/34",
+    color: "bg-[#A8C1D4]/34",
   },
 ] as const
 
@@ -188,7 +188,7 @@ function EventCard({
 }: EventCardProps) {
   return (
     <motion.article
-      className="group relative flex h-full flex-col overflow-hidden rounded-[30px] border border-[#DFD3CE]/60 bg-[linear-gradient(180deg,rgba(255,255,255,0.96)_0%,rgba(223,211,206,0.18)_100%)] p-6 shadow-[0_18px_48px_rgba(140,164,172,0.1)] backdrop-blur-sm sm:p-7"
+      className="group relative flex h-full flex-col overflow-hidden rounded-[30px] border border-[#DFD3CE]/60 bg-[linear-gradient(180deg,rgba(255,255,255,0.96)_0%,rgba(223,211,206,0.18)_100%)] p-6 shadow-[0_18px_48px_rgba(168,193,212,0.1)] backdrop-blur-sm sm:p-7"
       initial={reducedMotion ? undefined : { opacity: 0, y: 36 }}
       whileInView={reducedMotion ? undefined : { opacity: 1, y: 0 }}
       whileHover={reducedMotion ? undefined : { y: -6 }}
@@ -204,16 +204,16 @@ function EventCard({
 
       <div className="relative flex h-full flex-col">
         <div className="flex items-start justify-between gap-4">
-          <span className="inline-flex rounded-full border border-[#DFD3CE]/50 bg-[#DFD3CE]/12 px-3 py-1.5 text-[0.62rem] tracking-[0.3em] text-[#8CA4AC] uppercase">
+          <span className="inline-flex rounded-full border border-[#DFD3CE]/50 bg-[#DFD3CE]/12 px-3 py-1.5 text-[0.62rem] tracking-[0.3em] text-[#A8C1D4] uppercase">
             Wedding Event
           </span>
-          <div className="flex h-11 w-11 items-center justify-center rounded-full border border-[#DFD3CE]/55 bg-white/75 text-[0.95rem] font-semibold text-[#c5a36e] shadow-[0_10px_24px_rgba(140,164,172,0.08)]">
+          <div className="flex h-11 w-11 items-center justify-center rounded-full border border-[#DFD3CE]/55 bg-white/75 text-[0.95rem] font-semibold text-[#c5a36e] shadow-[0_10px_24px_rgba(168,193,212,0.08)]">
             0{index + 1}
           </div>
         </div>
 
         <div className="mt-6 text-center">
-          <p className="text-[0.68rem] tracking-[0.34em] text-[#8CA4AC] uppercase">
+          <p className="text-[0.68rem] tracking-[0.34em] text-[#A8C1D4] uppercase">
             {label}
           </p>
           <h3 className="mt-3 font-heading text-[2.15rem] leading-[1] text-[#394355] sm:text-[2.35rem]">
@@ -224,7 +224,7 @@ function EventCard({
 
         <div className="mt-7 space-y-3 rounded-[22px] border border-[#DFD3CE]/55 bg-white/68 p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.9)]">
           <div className="flex items-start justify-between gap-4 border-b border-[#DFD3CE]/70 pb-3">
-            <p className="text-[0.68rem] tracking-[0.28em] text-[#8CA4AC] uppercase">
+            <p className="text-[0.68rem] tracking-[0.28em] text-[#A8C1D4] uppercase">
               Date
             </p>
             <p className="text-right text-[1.02rem] leading-snug text-[#4b5562] sm:text-[1.08rem]">
@@ -232,7 +232,7 @@ function EventCard({
             </p>
           </div>
           <div className="flex items-start justify-between gap-4 border-b border-[#DFD3CE]/70 pb-3">
-            <p className="text-[0.68rem] tracking-[0.28em] text-[#8CA4AC] uppercase">
+            <p className="text-[0.68rem] tracking-[0.28em] text-[#A8C1D4] uppercase">
               Time
             </p>
             <p className="text-right text-[1.02rem] leading-snug text-[#4b5562] sm:text-[1.08rem]">
@@ -264,7 +264,7 @@ function DecorativeCardFrame({ dark = false }: DecorativeCardFrameProps) {
     ? "rgba(211, 181, 123, 0.5)"
     : "rgba(211, 181, 123, 0.55)"
   const secondaryStroke = dark
-    ? "rgba(140, 164, 172, 0.28)"
+    ? "rgba(168, 193, 212, 0.28)"
     : "rgba(223, 211, 206, 0.44)"
   const accentFill = dark
     ? "rgba(211, 181, 123, 0.72)"
@@ -284,7 +284,7 @@ function DecorativeCardFrame({ dark = false }: DecorativeCardFrameProps) {
         className="pointer-events-none absolute inset-5 sm:inset-6"
         style={{
           border: dark
-            ? "1px solid rgba(140, 164, 172, 0.2)"
+            ? "1px solid rgba(168, 193, 212, 0.2)"
             : "1px solid rgba(223, 211, 206, 0.32)",
         }}
       />
@@ -414,9 +414,9 @@ function InvitationHeroCard({
           style={{
             aspectRatio: "3 / 4.15",
             boxShadow: `
-              0 2px 4px rgba(140, 164, 172, 0.04),
-              0 8px 16px rgba(140, 164, 172, 0.06),
-              0 25px 60px -12px rgba(140, 164, 172, 0.12),
+              0 2px 4px rgba(168, 193, 212, 0.04),
+              0 8px 16px rgba(168, 193, 212, 0.06),
+              0 25px 60px -12px rgba(168, 193, 212, 0.12),
               0 50px 100px -30px rgba(223, 211, 206, 0.18),
               inset 0 1px 1px rgba(255, 255, 255, 0.9),
               inset 0 -1px 1px rgba(223, 211, 206, 0.18)
@@ -424,7 +424,7 @@ function InvitationHeroCard({
           }}
         >
           <motion.div
-            className="absolute inset-0 overflow-hidden bg-[linear-gradient(175deg,#fffdfd_0%,rgba(223,211,206,0.18)_18%,rgba(255,255,255,0.96)_52%,rgba(140,164,172,0.16)_82%,#fffdfd_100%)] p-8 sm:p-10"
+            className="absolute inset-0 overflow-hidden bg-[linear-gradient(175deg,#fffdfd_0%,rgba(223,211,206,0.18)_18%,rgba(255,255,255,0.96)_52%,rgba(168,193,212,0.16)_82%,#fffdfd_100%)] p-8 sm:p-10"
             style={cardFaceStyle}
             animate={
               reducedMotion
@@ -467,13 +467,13 @@ function InvitationHeroCard({
                 </motion.h2>
 
                 <div className="mt-6 mb-8 flex items-center justify-center gap-3">
-                  <div className="h-px w-16 bg-gradient-to-r from-transparent via-[#8CA4AC] to-transparent opacity-75" />
+                  <div className="h-px w-16 bg-gradient-to-r from-transparent via-[#A8C1D4] to-transparent opacity-75" />
                   <div className="h-1.5 w-1.5 rotate-45 border border-[#d5b06f]/45 bg-[#DFD3CE]/70" />
                   <div className="h-px w-16 bg-gradient-to-r from-transparent via-[#DFD3CE] to-transparent opacity-75" />
                 </div>
 
                 <motion.p
-                  className="text-[10px] font-medium tracking-[0.48em] text-[#8CA4AC] uppercase sm:text-xs"
+                  className="text-[10px] font-medium tracking-[0.48em] text-[#A8C1D4] uppercase sm:text-xs"
                   animate={
                     reducedMotion ? undefined : { opacity: [0.55, 1, 0.55] }
                   }
@@ -490,7 +490,7 @@ function InvitationHeroCard({
           </motion.div>
 
           <motion.div
-            className="absolute inset-0 overflow-hidden bg-[linear-gradient(175deg,#fffdfd_0%,rgba(223,211,206,0.18)_18%,rgba(255,255,255,0.96)_52%,rgba(140,164,172,0.16)_82%,#fffdfd_100%)] p-8 text-[#39445a] sm:p-10"
+            className="absolute inset-0 overflow-hidden bg-[linear-gradient(175deg,#fffdfd_0%,rgba(223,211,206,0.18)_18%,rgba(255,255,255,0.96)_52%,rgba(168,193,212,0.16)_82%,#fffdfd_100%)] p-8 text-[#39445a] sm:p-10"
             style={{
               ...cardFaceStyle,
               transform: "rotateY(-180deg)",
@@ -527,7 +527,7 @@ function InvitationHeroCard({
             >
               <div className="mx-auto flex w-full max-w-[17rem] flex-col items-center px-2 py-3 text-center sm:max-w-[27rem]">
                 <motion.p
-                  className="text-[10px] font-medium tracking-[0.34em] text-[#8CA4AC] uppercase sm:text-xs"
+                  className="text-[10px] font-medium tracking-[0.34em] text-[#A8C1D4] uppercase sm:text-xs"
                   initial={reducedMotion ? undefined : { opacity: 0, y: 8 }}
                   animate={reducedMotion ? undefined : { opacity: 1, y: 0 }}
                   transition={{ delay: reducedMotion ? 0 : 0.14 }}
@@ -606,7 +606,7 @@ function InvitationHeroCard({
                   <p className="text-[11px] font-semibold tracking-[0.22em] text-[#d2ae73] uppercase sm:text-xs">
                     April 3rd to April 5th
                   </p>
-                  <p className="mt-1 text-[10px] tracking-[0.18em] text-[#8CA4AC] uppercase sm:text-[11px]">
+                  <p className="mt-1 text-[10px] tracking-[0.18em] text-[#A8C1D4] uppercase sm:text-[11px]">
                     Rockaway Beach and Maleen Banquet Hall
                   </p>
                 </motion.div>
@@ -707,11 +707,11 @@ export default function InvitationPage() {
     <MotionConfig reducedMotion="user">
       <main className="relative overflow-x-hidden bg-[#fffcfb] text-[#384355]">
         <motion.div
-          className="fixed inset-x-0 top-0 z-50 h-1 origin-left bg-gradient-to-r from-[#d7b57a] via-[#DFD3CE] to-[#8CA4AC]"
+          className="fixed inset-x-0 top-0 z-50 h-1 origin-left bg-gradient-to-r from-[#d7b57a] via-[#DFD3CE] to-[#A8C1D4]"
           style={{ scaleX: progressScaleX }}
         />
 
-        <div className="pointer-events-none fixed inset-0 -z-20 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.82),transparent_28%),radial-gradient(circle_at_18%_18%,rgba(223,211,206,0.42),transparent_34%),radial-gradient(circle_at_82%_12%,rgba(140,164,172,0.34),transparent_30%),linear-gradient(180deg,#fffafc_0%,rgba(223,211,206,0.12)_44%,rgba(140,164,172,0.1)_100%)]" />
+        <div className="pointer-events-none fixed inset-0 -z-20 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.82),transparent_28%),radial-gradient(circle_at_18%_18%,rgba(223,211,206,0.42),transparent_34%),radial-gradient(circle_at_82%_12%,rgba(168,193,212,0.34),transparent_30%),linear-gradient(180deg,#fffafc_0%,rgba(223,211,206,0.12)_44%,rgba(168,193,212,0.1)_100%)]" />
         <div className="pointer-events-none fixed inset-0 -z-10 bg-[linear-gradient(120deg,rgba(255,255,255,0.14)_0%,transparent_32%,rgba(255,255,255,0.08)_58%,transparent_100%)]" />
 
         <section
@@ -810,7 +810,7 @@ export default function InvitationPage() {
               {!isOpen ? (
                 <motion.p
                   key="closed"
-                  className="text-center text-[0.72rem] font-bold tracking-[0.34em] text-[#8CA4AC] uppercase sm:text-sm"
+                  className="text-center text-[0.72rem] font-bold tracking-[0.34em] text-[#A8C1D4] uppercase sm:text-sm"
                   initial={reducedMotion ? undefined : { opacity: 0, y: 10 }}
                   animate={reducedMotion ? undefined : { opacity: 1, y: 0 }}
                   exit={reducedMotion ? undefined : { opacity: 0, y: -10 }}
@@ -820,7 +820,7 @@ export default function InvitationPage() {
               ) : (
                 <motion.p
                   key="opened"
-                  className="text-center text-[0.72rem] tracking-[0.34em] text-[#8CA4AC] uppercase sm:text-sm"
+                  className="text-center text-[0.72rem] tracking-[0.34em] text-[#A8C1D4] uppercase sm:text-sm"
                   initial={reducedMotion ? undefined : { opacity: 0, y: 10 }}
                   animate={
                     reducedMotion
@@ -847,8 +847,8 @@ export default function InvitationPage() {
               reducedMotion={reducedMotion}
               className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]"
             >
-              <div className="rounded-[34px] border border-white/60 bg-[linear-gradient(180deg,rgba(255,251,253,0.88),rgba(223,211,206,0.2),rgba(140,164,172,0.12))] p-8 shadow-[0_24px_60px_rgba(140,164,172,0.1)] backdrop-blur-sm sm:p-10">
-                <p className="text-xs font-medium tracking-[0.34em] text-[#8CA4AC] uppercase">
+              <div className="rounded-[34px] border border-white/60 bg-[linear-gradient(180deg,rgba(255,251,253,0.88),rgba(223,211,206,0.2),rgba(168,193,212,0.12))] p-8 shadow-[0_24px_60px_rgba(168,193,212,0.1)] backdrop-blur-sm sm:p-10">
+                <p className="text-xs font-medium tracking-[0.34em] text-[#A8C1D4] uppercase">
                   Mohian Islam Protik and Lamia Zaman
                 </p>
                 <h2 className="mt-4 font-heading text-[2.5rem] leading-tight text-[#4d5874] sm:text-[3.5rem]">
@@ -864,7 +864,7 @@ export default function InvitationPage() {
               </div>
 
               <motion.div
-                className="relative overflow-hidden rounded-[34px] border border-[#DFD3CE]/28 bg-[linear-gradient(180deg,rgba(255,250,252,0.96),rgba(223,211,206,0.16),rgba(140,164,172,0.14))] p-8 shadow-[0_24px_60px_rgba(140,164,172,0.1)]"
+                className="relative overflow-hidden rounded-[34px] border border-[#DFD3CE]/28 bg-[linear-gradient(180deg,rgba(255,250,252,0.96),rgba(223,211,206,0.16),rgba(168,193,212,0.14))] p-8 shadow-[0_24px_60px_rgba(168,193,212,0.1)]"
                 initial={
                   reducedMotion ? undefined : { opacity: 0, scale: 0.96 }
                 }
@@ -875,12 +875,12 @@ export default function InvitationPage() {
                 transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
               >
                 <div className="absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-[#d5b06f]/55 to-transparent" />
-                <p className="text-xs font-medium tracking-[0.34em] text-[#8CA4AC] uppercase">
+                <p className="text-xs font-medium tracking-[0.34em] text-[#A8C1D4] uppercase">
                   Quick Guide
                 </p>
                 <div className="mt-6 space-y-5">
                   <div>
-                    <p className="text-sm tracking-[0.22em] text-[#8CA4AC] uppercase">
+                    <p className="text-sm tracking-[0.22em] text-[#A8C1D4] uppercase">
                       Friday, April 3rd
                     </p>
                     <p className="mt-2 font-heading text-[2rem] text-[#4d5874]">
@@ -892,7 +892,7 @@ export default function InvitationPage() {
                   </div>
                   <div className="h-px w-full bg-[#DFD3CE]/60" />
                   <div>
-                    <p className="text-sm tracking-[0.22em] text-[#8CA4AC] uppercase">
+                    <p className="text-sm tracking-[0.22em] text-[#A8C1D4] uppercase">
                       Saturday, April 4th | 3:00 PM
                     </p>
                     <p className="mt-2 font-heading text-[2rem] text-[#4d5874]">
@@ -902,7 +902,7 @@ export default function InvitationPage() {
                       Rockaway Beach (Address TBA)
                     </p>
                   </div>
-                  <div className="h-px w-full bg-[#8CA4AC]/50" />
+                  <div className="h-px w-full bg-[#A8C1D4]/50" />
                   <div>
                     <p className="text-sm tracking-[0.22em] text-[#d0ad72] uppercase">
                       Sunday, April 5th | 5:00 PM
@@ -920,7 +920,7 @@ export default function InvitationPage() {
 
             <Reveal reducedMotion={reducedMotion}>
               <div className="max-w-3xl">
-                <p className="text-xs font-medium tracking-[0.34em] text-[#8CA4AC] uppercase">
+                <p className="text-xs font-medium tracking-[0.34em] text-[#A8C1D4] uppercase">
                   Event Schedule
                 </p>
                 <h2 className="mt-4 font-heading text-[2.5rem] leading-tight text-[#4d5874] sm:text-[3.5rem]">
@@ -944,7 +944,7 @@ export default function InvitationPage() {
               reducedMotion={reducedMotion}
               className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr]"
             >
-              <div className="rounded-[34px] border border-[#DFD3CE]/28 bg-[linear-gradient(155deg,#8CA4AC_0%,rgba(140,164,172,0.92)_46%,#DFD3CE_100%)] p-8 text-white shadow-[0_24px_60px_rgba(140,164,172,0.18)] sm:p-10">
+              <div className="rounded-[34px] border border-[#DFD3CE]/28 bg-[linear-gradient(155deg,#A8C1D4_0%,rgba(168,193,212,0.92)_46%,#DFD3CE_100%)] p-8 text-white shadow-[0_24px_60px_rgba(168,193,212,0.18)] sm:p-10">
                 <p className="text-xs font-medium tracking-[0.34em] text-[#fff3f8] uppercase">
                   Venue Guide
                 </p>
@@ -967,13 +967,13 @@ export default function InvitationPage() {
 
               <div className="grid gap-4 sm:grid-cols-2">
                 <motion.div
-                  className="rounded-[28px] border border-white/60 bg-[linear-gradient(180deg,rgba(255,251,253,0.92),rgba(223,211,206,0.16),rgba(140,164,172,0.12))] p-6 shadow-[0_24px_60px_rgba(140,164,172,0.1)] backdrop-blur-sm"
+                  className="rounded-[28px] border border-white/60 bg-[linear-gradient(180deg,rgba(255,251,253,0.92),rgba(223,211,206,0.16),rgba(168,193,212,0.12))] p-6 shadow-[0_24px_60px_rgba(168,193,212,0.1)] backdrop-blur-sm"
                   initial={reducedMotion ? undefined : { opacity: 0, x: 32 }}
                   whileInView={reducedMotion ? undefined : { opacity: 1, x: 0 }}
                   viewport={{ once: true, amount: 0.35 }}
                   transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
                 >
-                  <p className="text-xs font-medium tracking-[0.34em] text-[#8CA4AC] uppercase">
+                  <p className="text-xs font-medium tracking-[0.34em] text-[#A8C1D4] uppercase">
                     Beach Venue
                   </p>
                   <p className="mt-3 font-heading text-[2rem] text-[#4d5874]">
@@ -986,7 +986,7 @@ export default function InvitationPage() {
                 </motion.div>
 
                 <motion.div
-                  className="rounded-[28px] border border-white/60 bg-[linear-gradient(180deg,rgba(255,251,253,0.92),rgba(223,211,206,0.16),rgba(140,164,172,0.12))] p-6 shadow-[0_24px_60px_rgba(140,164,172,0.1)] backdrop-blur-sm"
+                  className="rounded-[28px] border border-white/60 bg-[linear-gradient(180deg,rgba(255,251,253,0.92),rgba(223,211,206,0.16),rgba(168,193,212,0.12))] p-6 shadow-[0_24px_60px_rgba(168,193,212,0.1)] backdrop-blur-sm"
                   initial={reducedMotion ? undefined : { opacity: 0, x: 32 }}
                   whileInView={reducedMotion ? undefined : { opacity: 1, x: 0 }}
                   viewport={{ once: true, amount: 0.35 }}
@@ -996,7 +996,7 @@ export default function InvitationPage() {
                     ease: [0.22, 1, 0.36, 1],
                   }}
                 >
-                  <p className="text-xs font-medium tracking-[0.34em] text-[#8CA4AC] uppercase">
+                  <p className="text-xs font-medium tracking-[0.34em] text-[#A8C1D4] uppercase">
                     Wedding Venue
                   </p>
                   <p className="mt-3 font-heading text-[2rem] text-[#4d5874]">
@@ -1012,7 +1012,7 @@ export default function InvitationPage() {
 
             <div className="grid gap-6 lg:grid-cols-2">
               <motion.div
-                className="overflow-hidden rounded-[32px] border border-white/60 bg-[linear-gradient(180deg,rgba(255,251,253,0.92),rgba(223,211,206,0.16),rgba(140,164,172,0.12))] p-4 shadow-[0_24px_60px_rgba(140,164,172,0.1)] backdrop-blur-sm"
+                className="overflow-hidden rounded-[32px] border border-white/60 bg-[linear-gradient(180deg,rgba(255,251,253,0.92),rgba(223,211,206,0.16),rgba(168,193,212,0.12))] p-4 shadow-[0_24px_60px_rgba(168,193,212,0.1)] backdrop-blur-sm"
                 initial={reducedMotion ? undefined : { opacity: 0, y: 28 }}
                 whileInView={reducedMotion ? undefined : { opacity: 1, y: 0 }}
                 whileHover={reducedMotion ? undefined : { y: -6 }}
@@ -1020,7 +1020,7 @@ export default function InvitationPage() {
                 transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
               >
                 <div className="mb-4 px-3 pt-3">
-                  <p className="text-xs font-medium tracking-[0.34em] text-[#8CA4AC] uppercase">
+                  <p className="text-xs font-medium tracking-[0.34em] text-[#A8C1D4] uppercase">
                     Rockaway Beach
                   </p>
                   <h3 className="mt-2 font-heading text-[2rem] text-[#4d5874]">
@@ -1040,7 +1040,7 @@ export default function InvitationPage() {
               </motion.div>
 
               <motion.div
-                className="overflow-hidden rounded-[32px] border border-white/60 bg-[linear-gradient(180deg,rgba(255,251,253,0.92),rgba(223,211,206,0.16),rgba(140,164,172,0.12))] p-4 shadow-[0_24px_60px_rgba(140,164,172,0.1)] backdrop-blur-sm"
+                className="overflow-hidden rounded-[32px] border border-white/60 bg-[linear-gradient(180deg,rgba(255,251,253,0.92),rgba(223,211,206,0.16),rgba(168,193,212,0.12))] p-4 shadow-[0_24px_60px_rgba(168,193,212,0.1)] backdrop-blur-sm"
                 initial={reducedMotion ? undefined : { opacity: 0, y: 28 }}
                 whileInView={reducedMotion ? undefined : { opacity: 1, y: 0 }}
                 whileHover={reducedMotion ? undefined : { y: -6 }}
@@ -1052,14 +1052,14 @@ export default function InvitationPage() {
                 }}
               >
                 <div className="mb-4 px-3 pt-3">
-                  <p className="text-xs font-medium tracking-[0.34em] text-[#8CA4AC] uppercase">
+                  <p className="text-xs font-medium tracking-[0.34em] text-[#A8C1D4] uppercase">
                     Maleen Banquet Hall
                   </p>
                   <h3 className="mt-2 font-heading text-[2rem] text-[#4d5874]">
                     Wedding Ceremony
                   </h3>
                 </div>
-                <div className="overflow-hidden rounded-[24px] border border-[#8CA4AC]/35">
+                <div className="overflow-hidden rounded-[24px] border border-[#A8C1D4]/35">
                   <iframe
                     title="Maleen Banquet Hall map"
                     src="https://www.google.com/maps?q=Maleen%20Banquet%20Hall%20Bellerose%20NY&z=15&output=embed"
