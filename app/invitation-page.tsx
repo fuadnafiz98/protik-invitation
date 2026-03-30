@@ -112,6 +112,7 @@ type RevealProps = {
 
 type EventCardProps = (typeof EVENTS)[number] & {
   index: number
+  onSelect: () => void
   reducedMotion: boolean
 }
 
@@ -184,14 +185,18 @@ function EventCard({
   time,
   venue,
   note,
+  onSelect,
   reducedMotion,
 }: EventCardProps) {
   return (
-    <motion.article
-      className="group relative flex h-full flex-col overflow-hidden rounded-[30px] border border-[#DFD3CE]/60 bg-[linear-gradient(180deg,rgba(255,255,255,0.96)_0%,rgba(223,211,206,0.18)_100%)] p-6 shadow-[0_18px_48px_rgba(168,193,212,0.1)] backdrop-blur-sm sm:p-7"
+    <motion.button
+      type="button"
+      onClick={onSelect}
+      className="group relative flex h-full w-full cursor-pointer flex-col overflow-hidden rounded-[30px] border border-[#DFD3CE]/60 bg-[linear-gradient(180deg,rgba(255,255,255,0.96)_0%,rgba(223,211,206,0.18)_100%)] p-6 text-left shadow-[0_18px_48px_rgba(168,193,212,0.1)] backdrop-blur-sm transition focus-visible:ring-2 focus-visible:ring-[#A8C1D4]/45 focus-visible:outline-none sm:p-7"
       initial={reducedMotion ? undefined : { opacity: 0, y: 36 }}
       whileInView={reducedMotion ? undefined : { opacity: 1, y: 0 }}
       whileHover={reducedMotion ? undefined : { y: -6 }}
+      whileTap={reducedMotion ? undefined : { scale: 0.992 }}
       viewport={{ once: true, amount: 0.35 }}
       transition={{
         duration: 0.8,
@@ -255,7 +260,7 @@ function EventCard({
           </p>
         </div>
       </div>
-    </motion.article>
+    </motion.button>
   )
 }
 
@@ -490,7 +495,7 @@ function InvitationHeroCard({
           </motion.div>
 
           <motion.div
-            className="absolute inset-0 overflow-hidden bg-[linear-gradient(175deg,#fffefe_0%,rgba(223,211,206,0.34)_18%,rgba(255,255,255,0.99)_56%,rgba(168,193,212,0.24)_82%,#fffefe_100%)] p-8 text-[#39445a] sm:bg-[linear-gradient(175deg,#fffdfd_0%,rgba(223,211,206,0.18)_18%,rgba(255,255,255,0.96)_52%,rgba(168,193,212,0.16)_82%,#fffdfd_100%)] sm:p-10"
+            className="absolute inset-0 overflow-hidden bg-[#fffdf9] p-8 text-[#39445a] sm:p-10"
             style={{
               ...cardFaceStyle,
               transform: "rotateY(-180deg)",
@@ -508,9 +513,8 @@ function InvitationHeroCard({
               ease: [0.22, 1, 0.36, 1],
             }}
           >
-            <DecorativeCardFrame dark />
-            <div className="pointer-events-none absolute inset-[14px] rounded-[18px] bg-white/32 sm:hidden" />
-            <div className="pointer-events-none absolute inset-x-8 bottom-8 h-28 rounded-[32px] bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.72)_0%,rgba(255,255,255,0)_72%)] opacity-80 sm:inset-x-10 sm:bottom-10" />
+            <DecorativeCardFrame />
+            <div className="pointer-events-none absolute inset-[12px] rounded-[18px] bg-[#fffdf9]" />
 
             <motion.div
               className="absolute inset-0 z-10 flex flex-col items-center justify-center p-8 text-center sm:p-10"
@@ -654,6 +658,8 @@ function InvitationHeroCard({
 export default function InvitationPage() {
   const [isOpen, setIsOpen] = useState(false)
   const heroRef = useRef<HTMLElement>(null)
+  const beachMapRef = useRef<HTMLDivElement>(null)
+  const weddingMapRef = useRef<HTMLDivElement>(null)
   const reducedMotion = useReducedMotion() ?? false
 
   const { scrollYProgress } = useScroll()
@@ -704,6 +710,15 @@ export default function InvitationPage() {
     openInvitation()
   }
 
+  const scrollToMap = (index: number) => {
+    const targetRef = index === 2 ? weddingMapRef : beachMapRef
+
+    targetRef.current?.scrollIntoView({
+      behavior: reducedMotion ? "auto" : "smooth",
+      block: "start",
+    })
+  }
+
   return (
     <MotionConfig reducedMotion="user">
       <main className="relative overflow-x-hidden bg-[#fffcfb] text-[#384355]">
@@ -725,7 +740,7 @@ export default function InvitationPage() {
             style={{ y: leftRoseY }}
             initial={false}
             animate={{
-              opacity: isOpen ? 0.82 : 0,
+              opacity: isOpen ? 0.4 : 0,
               scale: isOpen ? 1 : 0.92,
               x: isOpen ? 0 : -18,
             }}
@@ -746,7 +761,7 @@ export default function InvitationPage() {
             style={{ y: rightRoseY }}
             initial={false}
             animate={{
-              opacity: isOpen ? 0.88 : 0,
+              opacity: isOpen ? 0.36 : 0,
               scale: isOpen ? 1 : 0.92,
               x: isOpen ? 0 : 18,
             }}
@@ -780,11 +795,11 @@ export default function InvitationPage() {
               }}
               animate={
                 reducedMotion
-                  ? { opacity: 0.45 }
+                  ? { opacity: isOpen ? 0.18 : 0.45 }
                   : {
                       y: [0, -18, 0],
                       scale: [1, 1.08, 1],
-                      opacity: [0.3, 0.6, 0.3],
+                      opacity: isOpen ? [0.12, 0.22, 0.12] : [0.3, 0.6, 0.3],
                     }
               }
               transition={{
@@ -931,6 +946,7 @@ export default function InvitationPage() {
                 <EventCard
                   key={event.title}
                   index={index}
+                  onSelect={() => scrollToMap(index)}
                   reducedMotion={reducedMotion}
                   {...event}
                 />
@@ -939,76 +955,55 @@ export default function InvitationPage() {
 
             <Reveal
               reducedMotion={reducedMotion}
-              className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr]"
+              className="grid gap-4 sm:grid-cols-2"
             >
-              <div className="rounded-[34px] border border-[#DFD3CE]/28 bg-[linear-gradient(155deg,#A8C1D4_0%,rgba(168,193,212,0.92)_46%,#DFD3CE_100%)] p-8 text-white shadow-[0_24px_60px_rgba(168,193,212,0.18)] sm:p-10">
-                <p className="text-xs font-medium tracking-[0.34em] text-[#fff3f8] uppercase">
-                  Venue Guide
+              <motion.div
+                className="rounded-[28px] border border-white/60 bg-[linear-gradient(180deg,rgba(255,251,253,0.92),rgba(223,211,206,0.16),rgba(168,193,212,0.12))] p-6 shadow-[0_24px_60px_rgba(168,193,212,0.1)] backdrop-blur-sm"
+                initial={reducedMotion ? undefined : { opacity: 0, x: 32 }}
+                whileInView={reducedMotion ? undefined : { opacity: 1, x: 0 }}
+                viewport={{ once: true, amount: 0.35 }}
+                transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
+              >
+                <p className="text-xs font-medium tracking-[0.34em] text-[#A8C1D4] uppercase">
+                  Beach Venue
                 </p>
-                <h2 className="mt-4 font-heading text-[2.5rem] leading-tight sm:text-[3.3rem]">
-                  Directions and shared location
-                </h2>
-                <p className="mt-6 text-base leading-8 text-white/78">
-                  Use the embedded maps below for a quick view, and keep the
-                  shared Google Maps pin handy for arrival.
+                <p className="mt-3 font-heading text-[2rem] text-[#4d5874]">
+                  Rockaway Beach
                 </p>
-                <a
-                  href="https://maps.app.goo.gl/qNpLNXT4oTg6sqdi9?g_st=ic"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="mt-8 inline-flex rounded-full border border-[#e3c88f]/45 bg-white/12 px-6 py-3 text-sm font-medium tracking-[0.24em] text-[#fff8ee] uppercase transition hover:bg-white/18"
-                >
-                  Open Shared Pin
-                </a>
-              </div>
+                <p className="mt-3 text-sm leading-7 text-[#77839c]">
+                  Mehendi Night and Gaye Holud take place here.
+                </p>
+              </motion.div>
 
-              <div className="grid gap-4 sm:grid-cols-2">
-                <motion.div
-                  className="rounded-[28px] border border-white/60 bg-[linear-gradient(180deg,rgba(255,251,253,0.92),rgba(223,211,206,0.16),rgba(168,193,212,0.12))] p-6 shadow-[0_24px_60px_rgba(168,193,212,0.1)] backdrop-blur-sm"
-                  initial={reducedMotion ? undefined : { opacity: 0, x: 32 }}
-                  whileInView={reducedMotion ? undefined : { opacity: 1, x: 0 }}
-                  viewport={{ once: true, amount: 0.35 }}
-                  transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
-                >
-                  <p className="text-xs font-medium tracking-[0.34em] text-[#A8C1D4] uppercase">
-                    Beach Venue
-                  </p>
-                  <p className="mt-3 font-heading text-[2rem] text-[#4d5874]">
-                    Rockaway Beach
-                  </p>
-                  <p className="mt-3 text-sm leading-7 text-[#77839c]">
-                    Mehendi Night and Gaye Holud take place here.
-                  </p>
-                </motion.div>
-
-                <motion.div
-                  className="rounded-[28px] border border-white/60 bg-[linear-gradient(180deg,rgba(255,251,253,0.92),rgba(223,211,206,0.16),rgba(168,193,212,0.12))] p-6 shadow-[0_24px_60px_rgba(168,193,212,0.1)] backdrop-blur-sm"
-                  initial={reducedMotion ? undefined : { opacity: 0, x: 32 }}
-                  whileInView={reducedMotion ? undefined : { opacity: 1, x: 0 }}
-                  viewport={{ once: true, amount: 0.35 }}
-                  transition={{
-                    duration: 0.75,
-                    delay: reducedMotion ? 0 : 0.08,
-                    ease: [0.22, 1, 0.36, 1],
-                  }}
-                >
-                  <p className="text-xs font-medium tracking-[0.34em] text-[#A8C1D4] uppercase">
-                    Wedding Venue
-                  </p>
-                  <p className="mt-3 font-heading text-[2rem] text-[#4d5874]">
-                    Maleen Banquet Hall
-                  </p>
-                  <p className="mt-3 text-sm leading-7 text-[#77839c]">
-                    The wedding begins here on Sunday, April 5th at 5:00 PM in
-                    Bellerose, New York.
-                  </p>
-                </motion.div>
-              </div>
+              <motion.div
+                className="rounded-[28px] border border-white/60 bg-[linear-gradient(180deg,rgba(255,251,253,0.92),rgba(223,211,206,0.16),rgba(168,193,212,0.12))] p-6 shadow-[0_24px_60px_rgba(168,193,212,0.1)] backdrop-blur-sm"
+                initial={reducedMotion ? undefined : { opacity: 0, x: 32 }}
+                whileInView={reducedMotion ? undefined : { opacity: 1, x: 0 }}
+                viewport={{ once: true, amount: 0.35 }}
+                transition={{
+                  duration: 0.75,
+                  delay: reducedMotion ? 0 : 0.08,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+              >
+                <p className="text-xs font-medium tracking-[0.34em] text-[#A8C1D4] uppercase">
+                  Wedding Venue
+                </p>
+                <p className="mt-3 font-heading text-[2rem] text-[#4d5874]">
+                  Maleen Banquet Hall
+                </p>
+                <p className="mt-3 text-sm leading-7 text-[#77839c]">
+                  The wedding begins here on Sunday, April 5th at 5:00 PM in
+                  Bellerose, New York.
+                </p>
+              </motion.div>
             </Reveal>
 
             <div className="grid gap-6 lg:grid-cols-2">
               <motion.div
+                ref={beachMapRef}
                 className="overflow-hidden rounded-[32px] border border-white/60 bg-[linear-gradient(180deg,rgba(255,251,253,0.92),rgba(223,211,206,0.16),rgba(168,193,212,0.12))] p-4 shadow-[0_24px_60px_rgba(168,193,212,0.1)] backdrop-blur-sm"
+                style={{ scrollMarginTop: "7rem" }}
                 initial={reducedMotion ? undefined : { opacity: 0, y: 28 }}
                 whileInView={reducedMotion ? undefined : { opacity: 1, y: 0 }}
                 whileHover={reducedMotion ? undefined : { y: -6 }}
@@ -1036,7 +1031,9 @@ export default function InvitationPage() {
               </motion.div>
 
               <motion.div
+                ref={weddingMapRef}
                 className="overflow-hidden rounded-[32px] border border-white/60 bg-[linear-gradient(180deg,rgba(255,251,253,0.92),rgba(223,211,206,0.16),rgba(168,193,212,0.12))] p-4 shadow-[0_24px_60px_rgba(168,193,212,0.1)] backdrop-blur-sm"
+                style={{ scrollMarginTop: "7rem" }}
                 initial={reducedMotion ? undefined : { opacity: 0, y: 28 }}
                 whileInView={reducedMotion ? undefined : { opacity: 1, y: 0 }}
                 whileHover={reducedMotion ? undefined : { y: -6 }}
