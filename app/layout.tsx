@@ -1,8 +1,8 @@
-import { Cormorant_Garamond, Inter } from "next/font/google"
+import { DM_Sans, Cormorant_Garamond } from "next/font/google"
 
 import "./globals.css"
 
-const inter = Inter({
+const dmSans = DM_Sans({
   subsets: ["latin"],
   variable: "--font-sans",
   display: "swap",
@@ -10,7 +10,8 @@ const inter = Inter({
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
-  weight: ["300", "500", "600"],
+  weight: ["300", "400", "500", "600"],
+  style: ["normal", "italic"],
   variable: "--font-cormorant",
   display: "swap",
 })
@@ -23,7 +24,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${cormorant.variable} font-sans antialiased`}
+      className={`${dmSans.variable} ${cormorant.variable} font-sans antialiased`}
     >
       <body>{children}</body>
     </html>
