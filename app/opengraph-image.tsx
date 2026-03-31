@@ -262,17 +262,17 @@ export default async function Image() {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            gap: "22px",
+            gap: "18px",
             position: "relative",
           }}
         >
           {/* YOU'RE INVITED — matches: text-[0.5rem] font-semibold tracking-[0.5em] text-[#2d3750]/60 */}
           <p
             style={{
-              fontSize: "13px",
+              fontSize: "26px",
               fontWeight: "600",
               letterSpacing: "0.5em",
-              color: "rgba(45, 55, 80, 0.60)",
+              color: "rgba(45, 55, 80, 0.88)",
               fontFamily: "ui-sans-serif, system-ui, sans-serif",
               textTransform: "uppercase",
               display: "flex",
@@ -289,16 +289,16 @@ export default async function Image() {
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              width: "180px",
-              height: "180px",
+              width: "360px",
+              height: "360px",
             }}
           >
             {/* Outer glow ring — matches: h-36 w-36 border border-[#3d5a72]/12 */}
             <div
               style={{
                 position: "absolute",
-                width: "180px",
-                height: "180px",
+                width: "360px",
+                height: "360px",
                 borderRadius: "9999px",
                 border: "1px solid rgba(61, 90, 114, 0.20)",
               }}
@@ -307,8 +307,8 @@ export default async function Image() {
             <div
               style={{
                 position: "relative",
-                width: "142px",
-                height: "142px",
+                width: "284px",
+                height: "284px",
                 borderRadius: "9999px",
                 border: "1px solid rgba(61, 90, 114, 0.28)",
                 display: "flex",
@@ -320,7 +320,7 @@ export default async function Image() {
               <div
                 style={{
                   position: "absolute",
-                  top: "9px", right: "9px", bottom: "9px", left: "9px",
+                  top: "18px", right: "18px", bottom: "18px", left: "18px",
                   borderRadius: "9999px",
                   border: "0.5px solid rgba(61, 90, 114, 0.14)",
                 }}
@@ -329,10 +329,10 @@ export default async function Image() {
               <div
                 style={{
                   position: "absolute",
-                  top: "14px",
-                  left: "67px",
-                  width: "5px",
-                  height: "5px",
+                  top: "28px",
+                  left: "137px",
+                  width: "10px",
+                  height: "10px",
                   transform: "rotate(45deg)",
                   backgroundColor: "rgba(61, 90, 114, 0.28)",
                 }}
@@ -341,10 +341,10 @@ export default async function Image() {
               <div
                 style={{
                   position: "absolute",
-                  bottom: "14px",
-                  left: "67px",
-                  width: "5px",
-                  height: "5px",
+                  bottom: "28px",
+                  left: "137px",
+                  width: "10px",
+                  height: "10px",
                   transform: "rotate(45deg)",
                   backgroundColor: "rgba(61, 90, 114, 0.28)",
                 }}
@@ -354,14 +354,14 @@ export default async function Image() {
                 style={{
                   display: "flex",
                   alignItems: "baseline",
-                  gap: "6px",
+                  gap: "12px",
                   position: "relative",
                 }}
               >
                 <span
                   style={{
                     fontFamily: '"Cormorant Garamond", serif',
-                    fontSize: "52px",
+                    fontSize: "104px",
                     fontStyle: "italic",
                     fontWeight: 600,
                     color: "#1e2d45",
@@ -373,10 +373,10 @@ export default async function Image() {
                 <span
                   style={{
                     fontFamily: "ui-sans-serif, system-ui, sans-serif",
-                    fontSize: "13px",
+                    fontSize: "26px",
                     fontWeight: 500,
-                    color: "rgba(61, 90, 114, 0.55)",
-                    paddingBottom: "4px",
+                    color: "rgba(61, 90, 114, 0.80)",
+                    paddingBottom: "8px",
                   }}
                 >
                   &amp;
@@ -384,7 +384,7 @@ export default async function Image() {
                 <span
                   style={{
                     fontFamily: '"Cormorant Garamond", serif',
-                    fontSize: "52px",
+                    fontSize: "104px",
                     fontStyle: "italic",
                     fontWeight: 600,
                     color: "#1e2d45",
@@ -402,24 +402,24 @@ export default async function Image() {
             style={{
               display: "flex",
               alignItems: "center",
-              gap: "8px",
+              gap: "16px",
               borderRadius: "9999px",
               border: "1px solid rgba(61, 90, 114, 0.25)",
               backgroundColor: "rgba(255, 255, 255, 0.30)",
-              padding: "9px 20px",
+              padding: "18px 40px",
             }}
           >
-            <svg width="13" height="10" viewBox="0 0 13 10" fill="none">
+            <svg width="26" height="20" viewBox="0 0 13 10" fill="none">
               <rect x="0.5" y="0.5" width="12" height="9" rx="1.5" stroke="rgba(61,90,114,0.5)" strokeWidth="0.8"/>
               <path d="M0.5 2L6.5 6L12.5 2" stroke="rgba(61,90,114,0.5)" strokeWidth="0.8" strokeLinecap="round"/>
             </svg>
             <span
               style={{
                 fontFamily: "ui-sans-serif, system-ui, sans-serif",
-                fontSize: "10px",
+                fontSize: "20px",
                 fontWeight: 600,
                 letterSpacing: "0.35em",
-                color: "rgba(45, 55, 80, 0.70)",
+                color: "rgba(45, 55, 80, 0.90)",
                 textTransform: "uppercase",
               }}
             >
@@ -431,10 +431,10 @@ export default async function Image() {
           <p
             style={{
               fontFamily: '"Cormorant Garamond", serif',
-              fontSize: "18px",
+              fontSize: "36px",
               fontStyle: "italic",
               fontWeight: 400,
-              color: "rgba(61, 90, 114, 0.40)",
+              color: "rgba(61, 90, 114, 0.70)",
               display: "flex",
               margin: "0px",
             }}
