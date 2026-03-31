@@ -999,7 +999,7 @@ export default function InvitationPage() {
                     <p className="mt-0.5 text-xs text-[#4d5874]">Mehendi, Kawali &amp; Haldi</p>
                   </div>
                   <a
-                    href="https://maps.google.com/?q=Rockaway+Beach+NY"
+                    href="https://maps.app.goo.gl/yjmmN9UR6NAVBVEW6"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="mt-1 flex items-center gap-1.5 rounded-full border border-[#A8C1D4]/40 bg-[rgba(168,193,212,0.08)] px-3 py-1.5 text-[0.6rem] font-medium tracking-[0.15em] text-[#5a7fa3] uppercase transition hover:bg-[rgba(168,193,212,0.15)]"
