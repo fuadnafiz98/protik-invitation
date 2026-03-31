@@ -1012,7 +1012,7 @@ export default function InvitationPage() {
                 <div className="overflow-hidden rounded-[16px] mx-3 mb-3 border border-[#A8C1D4]/20">
                   <iframe
                     title="Rockaway Beach map"
-                    src="https://www.google.com/maps?q=Rockaway%20Beach&z=14&output=embed"
+                    src="https://maps.google.com/maps?q=69-23+Elizabeth+Ave,+Far+Rockaway,+NY+11692&z=16&output=embed"
                     className="h-[18rem] w-full"
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
