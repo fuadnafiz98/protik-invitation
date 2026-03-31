@@ -477,7 +477,7 @@ function InvitationHeroCard({
         >
           <motion.div
             className="absolute inset-0 overflow-hidden"
-            style={{ ...cardFaceStyle, background: "linear-gradient(145deg, #dce6f0 0%, #c8d8e8 40%, #d8e4f0 100%)" }}
+            style={{ ...cardFaceStyle, background: "linear-gradient(145deg, #f5eeee 0%, #ede4e4 40%, #f0e8e8 100%)" }}
             animate={
               reducedMotion
                 ? { opacity: isRevealed ? 0 : 1 }
@@ -552,7 +552,7 @@ function InvitationHeroCard({
             style={{
               ...cardFaceStyle,
               transform: "rotateY(-180deg)",
-              background: "linear-gradient(145deg, #dce6f0 0%, #c8d8e8 40%, #d8e4f0 100%)",
+              background: "linear-gradient(145deg, #f5eeee 0%, #ede4e4 40%, #f0e8e8 100%)",
             }}
             animate={
               reducedMotion
@@ -780,6 +780,40 @@ export default function InvitationPage() {
         <div className="pointer-events-none fixed inset-0 -z-20 bg-[radial-gradient(ellipse_at_top_right,rgba(168,193,212,0.28),transparent_50%),radial-gradient(ellipse_at_bottom_left,rgba(140,180,215,0.18),transparent_55%),linear-gradient(180deg,#eef3f9_0%,#f2f6fa_50%,#edf2f8_100%)]" />
         <div className="pointer-events-none fixed inset-0 -z-10 bg-[linear-gradient(135deg,rgba(255,255,255,0.22)_0%,transparent_40%,rgba(168,193,212,0.06)_100%)]" />
 
+        {/* Fixed rose backgrounds — stay in place as content scrolls over */}
+        <motion.div
+          aria-hidden
+          className="pointer-events-none fixed bottom-0 left-0 z-0 w-[11rem] sm:w-[17rem] md:w-[23rem] lg:w-[29rem]"
+          initial={false}
+          animate={{ opacity: isOpen ? 0.4 : 0, scale: isOpen ? 1 : 0.92, x: isOpen ? 0 : -18 }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <Image
+            src={bottomLeftRoses}
+            alt=""
+            priority
+            sizes="(max-width: 640px) 10rem, (max-width: 1024px) 20rem, 24rem"
+            className="h-auto w-full object-contain opacity-75 select-none"
+            style={{ filter: "sepia(0.4) saturate(1.8) hue-rotate(-15deg) brightness(0.9)" }}
+          />
+        </motion.div>
+        <motion.div
+          aria-hidden
+          className="pointer-events-none fixed top-0 right-0 z-0 w-[7.5rem] sm:w-[11rem] md:w-[15rem] lg:w-[18rem]"
+          initial={false}
+          animate={{ opacity: isOpen ? 0.36 : 0, scale: isOpen ? 1 : 0.92, x: isOpen ? 0 : 18 }}
+          transition={{ duration: 0.8, delay: reducedMotion ? 0 : 0.06, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <Image
+            src={topRightRose}
+            alt=""
+            priority
+            sizes="(max-width: 640px) 7rem, (max-width: 1024px) 13rem, 15rem"
+            className="h-auto w-full object-contain opacity-70 select-none"
+            style={{ filter: "sepia(0.4) saturate(1.8) hue-rotate(-15deg) brightness(0.9)" }}
+          />
+        </motion.div>
+
         {/* Bismillah header */}
         <div className="flex items-center justify-center pt-8 pb-2">
           <p className="text-[1.5rem] text-[#2d3750]/65" style={{ fontFamily: "serif", direction: "rtl", letterSpacing: "0.04em" }}>
@@ -791,53 +825,6 @@ export default function InvitationPage() {
           ref={heroRef}
           className="relative flex min-h-screen items-center justify-center px-6 py-12 md:px-10 md:py-20"
         >
-          <motion.div
-            aria-hidden
-            className="pointer-events-none absolute bottom-0 left-0 z-0 w-[11rem] sm:w-[17rem] md:w-[23rem] lg:w-[29rem]"
-            style={{ y: leftRoseY }}
-            initial={false}
-            animate={{
-              opacity: isOpen ? 0.4 : 0,
-              scale: isOpen ? 1 : 0.92,
-              x: isOpen ? 0 : -18,
-            }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <Image
-              src={bottomLeftRoses}
-              alt=""
-              priority
-              sizes="(max-width: 640px) 10rem, (max-width: 1024px) 20rem, 24rem"
-              className="h-auto w-full object-contain opacity-75 select-none"
-              style={{ filter: "sepia(0.4) saturate(1.8) hue-rotate(-15deg) brightness(0.9)" }}
-            />
-          </motion.div>
-
-          <motion.div
-            aria-hidden
-            className="pointer-events-none absolute top-0 right-0 z-0 w-[7.5rem] sm:w-[11rem] md:w-[15rem] lg:w-[18rem]"
-            style={{ y: rightRoseY }}
-            initial={false}
-            animate={{
-              opacity: isOpen ? 0.36 : 0,
-              scale: isOpen ? 1 : 0.92,
-              x: isOpen ? 0 : 18,
-            }}
-            transition={{
-              duration: 0.8,
-              delay: reducedMotion ? 0 : 0.06,
-              ease: [0.22, 1, 0.36, 1],
-            }}
-          >
-            <Image
-              src={topRightRose}
-              alt=""
-              priority
-              sizes="(max-width: 640px) 7rem, (max-width: 1024px) 13rem, 15rem"
-              className="h-auto w-full object-contain opacity-70 select-none"
-              style={{ filter: "sepia(0.4) saturate(1.8) hue-rotate(-15deg) brightness(0.9)" }}
-            />
-          </motion.div>
 
           {FLOATING_BLOOMS.map((bloom) => (
             <motion.span
